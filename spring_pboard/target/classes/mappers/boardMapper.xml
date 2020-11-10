@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.freehoon.web.board.boardMapper">
-
-
-
+<mapper namespace="com.company.spring_pboard.boardMapper">
+<select id="selectBoardList" resultType="BoardVO">
+	select * from pboard order by pno desc
+</select>
+<select id="selectBoardOne" resultType="BoardVO">
+	select * from pboard where pno=#{pno}
+</select>
+<insert id="insertBoard">
+	insert into pboard (pcate_cd, ptitle, pcontent, ptag, ppass, pname, pdate, peditdate, pip) 
+	values (#{pcate_cd}, #{ptitle}, #{pcontent}, #{ptag}, #{ppass}, #{pname}, #{pdate}, #{peditdate}, #{pip})
+</insert>
+<update id="updateBoard">
+	update pboard set pcate_cd=#{pcate_cd}, ptitle=#{ptitle}, pcontent=#{pcontent},
+	ptag=#{ptag}, peditdate=#{peditdate} where pno=#{pno} and ppass=#{ppass}
+</update>
+<update id="updateCnt">
+	update pcnt set pcnt=pcnt+1 where pno=#{pno}
+</update>
+<delete id="deleteBoard">
+	delete from pboard where pno=#{pno}
+</delete>
 </mapper>
 

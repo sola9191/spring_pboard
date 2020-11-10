@@ -12,8 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/dataSource-context.xml"})
-
-public class DataSource002 {
+public class DB002_DataSource {
 	
 	@Inject
 	private DataSource ds;
@@ -23,7 +22,7 @@ public class DataSource002 {
 		
 		try {
 		Connection conn = ds.getConnection();
-		System.out.println("basic005 conn: " +conn);
+		System.out.println("MYSQL 연결 " +conn);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
