@@ -8,9 +8,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container panel panel-info">
-		<h3 class="panel-heading"></h3>
-		<p>INDEX</p>
-	</div>
+	<script>location.href="<%=request.getContextPath()%>/board/list"</script>
 </body>
 </html>

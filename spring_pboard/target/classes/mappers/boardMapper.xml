@@ -8,18 +8,18 @@
 	select * from pboard where pno=#{pno}
 </select>
 <insert id="insertBoard">
-	insert into pboard (pcate_cd, ptitle, pcontent, ptag, ppass, pname, pdate, peditdate, pip) 
-	values (#{pcate_cd}, #{ptitle}, #{pcontent}, #{ptag}, #{ppass}, #{pname}, #{pdate}, #{peditdate}, #{pip})
+	insert into pboard (ptitle, pcontent, ptag, ppass, pname, pdate, peditdate, pip) 
+	values (#{ptitle}, #{pcontent}, #{ptag}, #{ppass}, #{pname}, #{pdate}, #{peditdate}, #{pip})
 </insert>
 <update id="updateBoard">
-	update pboard set pcate_cd=#{pcate_cd}, ptitle=#{ptitle}, pcontent=#{pcontent},
-	ptag=#{ptag}, peditdate=#{peditdate} where pno=#{pno} and ppass=#{ppass}
+	update pboard set ptitle=#{ptitle}, pcontent=#{pcontent},
+	ptag=#{ptag} where pno=#{pno} and ppass=#{ppass}
 </update>
 <update id="updateCnt">
-	update pcnt set pcnt=pcnt+1 where pno=#{pno}
+	update pboard set pcnt=pcnt+1 where pno=#{pno}
 </update>
 <delete id="deleteBoard">
-	delete from pboard where pno=#{pno}
+	delete from pboard where pno=#{pno} and ppass=#{ppass}
 </delete>
 </mapper>
 
