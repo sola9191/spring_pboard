@@ -31,12 +31,19 @@
 				<div class="mb-3">
 					<span>파일</span>
 					<p><img src="<%=request.getContextPath()%>/upload/${BoardVO.pfile}" /></p>
-				</div>		
-				<a href="<%=request.getContextPath()%>/board/edit?pno=${BoardVO.pno}" class="btn btn-sm btn-primary">글수정</a>
-				<a href="<%=request.getContextPath()%>/board/delete?pno=${BoardVO.pno}" class="btn btn-sm btn-success">글삭제</a>
-				<a href="<%=request.getContextPath()%>/board/list" class="btn btn-sm btn-warning">글목록</a>
-			</div>
+				</div>	
+				<div class="text-right">	
+					<a href="<%=request.getContextPath()%>/board/edit?pno=${BoardVO.pno}" class="btn btn-sm btn-primary">글수정</a>
+					<a href="<%=request.getContextPath()%>/board/delete?pno=${BoardVO.pno}" class="btn btn-sm btn-success">글삭제</a>
+					<a href="<%=request.getContextPath()%>/board/list" class="btn btn-sm btn-warning">글목록</a>
+				</div>
 		</div>
 	</article>
+<script>
+
+if("${edit}"=="pass") {alert("글수정에 성공했습니다");}
+if("${edit}"=="fail") {alert("글수정에 실패했습니다");}
+
+</script>
 </body>
 </html>

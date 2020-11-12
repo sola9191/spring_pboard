@@ -16,19 +16,36 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
+	
 	<!-- file upload관련해서 올린 코드 -->
 	<resources mapping="/upload/**" location="/upload/" />
-	<beans:bean id="multipartResolver"
-				class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="10485760" />			
-	</beans:bean>
+		
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!--  file upload -->
+	<beans:bean id="multipartResolver"
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760" />			
+	</beans:bean>
+	
+	<!-- interceptor -->	
+	<beans:bean id="loggerInterceptor" class="com.company.spring_pboard.logger.LoggerInterceptor" />
+	<interceptors> 
+		<interceptor> 
+			<mapping path="/**"/> 
+			<beans:ref bean="loggerInterceptor" /> 
+		</interceptor> 
+	</interceptors>
+	
+	<!-- aop -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<beans:bean id="loggerAspect"
+				class="com.company.spring_pboard.aop.LogAdvice"></beans:bean>
+				
 	<context:component-scan base-package="com.company.spring_pboard" />
-
-</beans:beans>
+</beans:beans> 
 

@@ -55,5 +55,11 @@
 		</div>
 	</div>
 </article>
+<script>
+if("${insert}"=="pass") { alert("글쓰기에 성공했습니다.");}
+if("${insert}"=="fail") { alert("글쓰기에 실패하였습니다.");}
+if("${delete}"=="pass") { alert("글삭제에 성공했습니다.");}
+if("${delete}"=="fail") { alert("글삭제에 실패하였습니다.");}
+</script>
 </body>
 </html>

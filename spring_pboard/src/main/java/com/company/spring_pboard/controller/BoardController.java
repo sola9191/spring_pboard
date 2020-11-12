@@ -34,7 +34,9 @@ public class BoardController {
 	//글쓰기액션
 	@RequestMapping(value="/write", method=RequestMethod.POST)
 	public String insertAction(BoardVO vo, HttpServletRequest request, MultipartFile file, RedirectAttributes rttr ) throws Exception{
-		service.insertBoard(vo, request, file);
+		String result = "fail";
+		if(service.insertBoard(vo, request, file)>0) { result="pass"; }
+		rttr.addFlashAttribute("insert", result); //fail이나 pass 보내기
 		return "redirect:/board/list";
 	}
 	//상세조회화면
@@ -56,8 +58,10 @@ public class BoardController {
 	//수정액션
 	@RequestMapping(value="/edit", method=RequestMethod.POST)
 	public String editAction(BoardVO vo, HttpServletRequest request, MultipartFile file, RedirectAttributes rttr) throws Exception{
-		service.updateBoard(vo, request, file);
-		return "redirect:/board/list";
+		String result = "fail";
+		if(service.updateBoard(vo, request, file)>0) { result="pass"; }
+		rttr.addFlashAttribute("edit", result);		
+		return "redirect:/board/detail?pno="+vo.getPno();
 	}
 	//삭제화면
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
@@ -69,9 +73,11 @@ public class BoardController {
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	public String deleteAction(@RequestParam("pno") int pno, @RequestParam("ppass") String ppass, 
 			RedirectAttributes rttr) throws Exception{
+		String result="fail";
 		BoardVO vo = new BoardVO();
 		vo.setPno(pno); vo.setPpass(ppass);
-		service.deleteBoard(vo);
+		if(service.deleteBoard(vo)>0) { result="pass"; }
+		rttr.addFlashAttribute("delete", result);
 		return "redirect:/board/list";
 	}
 	

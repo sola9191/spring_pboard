@@ -38,10 +38,10 @@ public class DB004_DAOTEST {
 		System.out.println(dao.selectBoardList());
 		
 	}
-	@Test @Ignore
+	@Test 
 	public void selectOne()  throws Exception{
 		BoardVO vo = new BoardVO();
-		vo.setPno(1);
+		vo.setPno(2);
 		System.out.println(dao.selectBoardOne(vo));
 		
 	}
@@ -69,13 +69,13 @@ public class DB004_DAOTEST {
 		System.out.println(dao.deleteBoard(vo));
 	}
 	//트랜잭션 테스트
-	@Transactional(isolation=Isolation.READ_COMMITTED)
-	@Test
-	@Rollback(false)
-	public void test_tx() throws Exception{
-		BoardVO vo = new BoardVO();
-		vo.setPno(2);
-		dao.updateCnt(vo);
-		dao.selectBoardOne(vo);
-	}
+//	@Transactional(isolation=Isolation.READ_COMMITTED)
+//	@Test
+//	@Rollback(false)
+//	public void test_tx() throws Exception{
+//		BoardVO vo = new BoardVO();
+//		vo.setPno(2);
+//		dao.updateCnt(vo);
+//		dao.selectBoardOne(vo);
+//	}
 }
