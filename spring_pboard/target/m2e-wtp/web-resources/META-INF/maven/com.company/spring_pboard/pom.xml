@@ -38,24 +38,27 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>
-		
-		<!-- AOP 관련추가 -->
+		</dependency>	
+		<!--    -->
+		<!-- 추가 -->
+		<!--    -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
 			<version>${org.aspectj-version}</version>
-		</dependency>
+		</dependency>  
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2</version>
-		</dependency>
+		</dependency> 
+     	<!-- cglib -->
+        <dependency>
+           <groupId>cglib</groupId>
+           <artifactId>cglib</artifactId>
+           <version>2.2</version>
+        </dependency>
+		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -129,7 +132,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.7</version>
 			<scope>test</scope>
 		</dependency> 
 		<!-- DB1 -->
@@ -137,7 +140,8 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.41</version>
-		</dependency>  		
+		</dependency>  
+		
 		<!-- DB2 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -158,19 +162,35 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4 -->
+		</dependency>  
+		
+		<!-- log4jdbc   -->
 		<dependency>
-		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
-		    <artifactId>log4jdbc-log4j2-jdbc4</artifactId>
-		    <version>1.16</version>
-		</dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>       
+		<!--  tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency> 
+		
 		<!-- img -->
 		<dependency>
 		    <groupId>commons-fileupload</groupId>
 		    <artifactId>commons-fileupload</artifactId>
 		    <version>1.3.2</version>
 		</dependency>
+		
+		<!-- json  -->
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.10.0</version>
+		</dependency> 	
 	</dependencies>
     <build>
         <plugins>

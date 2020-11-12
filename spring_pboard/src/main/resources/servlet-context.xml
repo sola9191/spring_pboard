@@ -29,19 +29,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.company.spring_pboard" />
-	<!--  interceptor 쓰려고올린코든데 작동안됨? -->
-	<beans:bean id="loggerInterceptor" class="com.company.spring_pboard.logger.LoggerInterceptor" />
-	<interceptors>
-		<interceptor>
-			<mapping path="/board/list"/>
-			<beans:ref bean="loggerInterceptor" />
-		</interceptor>
-	</interceptors>
-	
-	<!-- AOP -->
-	<aop:aspectj-autoproxy />
-	<beans:bean id="loggerAspect"
-				class="com.company.spring_pboard.aop.LogAdvice">
-	</beans:bean>
+
 </beans:beans>
 
